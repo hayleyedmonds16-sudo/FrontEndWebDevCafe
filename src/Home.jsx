@@ -1,8 +1,18 @@
-import MenuTable from "./components/MenuTable.jsx"
+import { useState } from 'react'
+import heroImg from './assets/hero.png'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import {items} from './data/data'
+import MenuTable from "./components/MenuTable";
+import Home from "./Home.jsx"
+import FilterableMenuTable from './components/FilterableMenuTable.jsx'
+import "leaflet/dist/leaflet.css";
+import Map from "./components/Map.jsx";
 
-const Home = ({ items }) => {
-    return (
-        <div className="container">
+function App() {
+  return(
+    <>
+    <div className="container">
             <div className="row">
 
                 <div className="col-md-4">
@@ -15,20 +25,21 @@ const Home = ({ items }) => {
 
                 <div className="col-md-4">
                     <h2>Where We Are</h2>
-                    <div className="map-placeholder">
-                        Map goes here
-                    </div>
+                    <Map />
                 </div>
 
                 <div className="col-md-4">
                     <h2>Our Menu</h2>
-                    <MenuTable items={items} />
+                    <FilterableMenuTable items={items} />
+
+                    {/* <MenuTable items={items} /> */}
                 </div>
 
             </div>
         </div>
-    );
-};
+    </>
+ 
+  );
+}
 
-export default Home;
-
+export default App;
